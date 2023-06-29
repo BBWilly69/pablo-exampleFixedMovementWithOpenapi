@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>de.imunixx</groupId>
+    <artifactId>angular_springboot_postgre_dockerized_demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.0</version>
+        <relativePath/> 
+    </parent>
+    
+    <modules>
+        <!--<module>Frontend</module>-->
+        <module>Api</module>
+        <module>Backend</module>
+        
+    </modules>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <spring-boot-starter>3.1.1</spring-boot-starter>
+        <spring-boot-starter-web>${spring-boot-starter}</spring-boot-starter-web>
+        <spring-boot-starter-test>${spring-boot-starter}</spring-boot-starter-test>
+        <spring-boot-starter-validation>${spring-boot-starter}</spring-boot-starter-validation>
+        <spring-boot-starter-mail>${spring-boot-starter}</spring-boot-starter-mail>
+        <spring-boot-starter-data-jpa>${spring-boot-starter}</spring-boot-starter-data-jpa>
+        
+        <spring-boot-starter-data-rest>3.1.0</spring-boot-starter-data-rest>
+        <spring-boot-devtools>3.1.0</spring-boot-devtools>
+        
+        <mapstruct>1.5.5.Final</mapstruct>
+        <lombok>1.18.28</lombok>
+        <lombok-mapstruct-binding>0.2.0</lombok-mapstruct-binding>
+        <hibernate-validator>8.0.0.Final</hibernate-validator>
+        <hibernate-core.orm>6.2.5.Final</hibernate-core.orm>
+        <postgresql>42.6.0</postgresql>
+        <mockito-junit-jupiter>5.3.1</mockito-junit-jupiter>
+        
+        <jakarta.validation-api>3.0.2</jakarta.validation-api>
+        <jakarta.persistence-api>3.1.0</jakarta.persistence-api>
+        <jakarta.servlet-api>6.0.0</jakarta.servlet-api>
+        <jakarta.annotation-api>2.1.1</jakarta.annotation-api>
+        <springdoc-openapi-starter-webmvc-ui>2.1.0</springdoc-openapi-starter-webmvc-ui>
+        <io-swagger-annotations>2.0.0-rc2</io-swagger-annotations>
+        <swagger-annotations>2.2.12</swagger-annotations>
+        <swagger-annotations-jakarta>2.2.12</swagger-annotations-jakarta>
+        <jackson-databind-nullable>0.2.6</jackson-databind-nullable>
+        <npm-maven-plugin.version>1.0.4</npm-maven-plugin.version>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring-boot-starter-data-jpa}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-mail</artifactId>
+                <version>${spring-boot-starter-mail}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter-web}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-rest</artifactId>
+                <version>${spring-boot-starter-data-rest}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <version>${spring-boot-devtools}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <scope>runtime</scope>
+                <version>${postgresql}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+                <version>${spring-boot-starter-test}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc-openapi-starter-webmvc-ui}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-mapstruct-binding</artifactId>
+                <version>${lombok-mapstruct-binding}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openapitools</groupId>
+                <artifactId>jackson-databind-nullable</artifactId>
+                <version>${jackson-databind-nullable}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations-jakarta</artifactId>
+                <version>${swagger-annotations-jakarta}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${io-swagger-annotations}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator}</version>
+                <type>jar</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.seovic.maven.plugins</groupId>
+                    <artifactId>npm-maven-plugin</artifactId>
+                    <version>${npm-maven-plugin.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>    
+    
+</project>

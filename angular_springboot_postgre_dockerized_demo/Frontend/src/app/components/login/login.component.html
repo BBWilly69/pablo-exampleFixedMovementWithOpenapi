@@ -1,0 +1,24 @@
+<section class="login">
+    <div class="container login__container">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <input class="form-control" type="text" placeholder="Email" formControlName="email" [ngClass]="{'is-invalid':submitted && loginForm.controls['email'].errors}">
+            <div *ngIf="submitted && loginForm.controls['email'].errors" class="text-danger">
+                <span *ngIf="submitted && loginForm.controls['email'].errors['required']">
+                    Enter an email
+                </span>
+                <span *ngIf="submitted && loginForm.controls['email'].errors['email']">
+                    Enter a valid email
+                </span>
+            </div>
+            <input class="form-control" type="password" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid':submitted && loginForm.controls['password'].errors}">
+            <div *ngIf="submitted && loginForm.controls['password'].errors" class="text-danger">
+                <span *ngIf="submitted && loginForm.controls['password'].errors['required']">
+                    Enter a password
+                </span>
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+            <div class="text-secondary"><a href="/send-password-restore">Did you forget your password?</a></div>
+            <div class="text-secondary">Already don't have an account? <a href="/register">Click here to register</a></div>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,61 @@
+openapi: 3.0.3
+info:
+  title: Api
+  description: API generated
+  termsOfService: http:swagger.io/terms
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/
+
+################################################################################
+# tags are needed if you want to use different pathes in the same Controller   #
+# - put <useTags>true</useTags> in pom under configOptions                     #
+# - put tags values also in referenced files like in the example below:        #
+#   -> post:                                                                   #
+#        tags:                                                                 #
+#          - FixedMovement                                                           #
+#   -> put:                                                                    #
+#        tags:                                                                 #
+#          - FixedMovement                                                           #
+#   -> get:                                                                    #
+#        tags:                                                                 #
+#          - FixedMovement                                                           #
+#   -> delete:                                                                 #
+#        tags:                                                                 #
+#          - FixedMovement                                                           #
+################################################################################
+tags:
+  - name: FixedMovement
+    description: Operations to manage FixedMovement
+
+# not false but you will have a lot of pathes with bigger database ;-)
+# next thing is you could copy fixed_moved.yml rename it. Edit -> find FixedMovement
+# and replace -> User => Ready user.yml with all pathes for CRUD
+# why did you made /add /update and /delete path? 
+# therefore is POST PUT DELETE so put and delete should be the same path
+
+#/fixed_movement:
+#  $ref: fixed_movement.yml#/~1fixed_movement
+#/fixed_movement/{id}:
+#  $ref: fixed_movement.yml#/~1fixed_movement~1{id}
+#/fixed_movements:
+#  $ref: fixed_movement.yml#/~1fixed_movements
+#/fixed_movements/{profileId}:
+#  $ref: fixed_movement.yml#/~1fixed_movements~1{profileId}
+
+paths:
+  /fixed_movement/{profileId}/all:
+    $ref: fixed_movement.yml#/~1fixed_movement~1{profileId}~1all
+  /fixed_movement/add: 
+    $ref: fixed_movement.yml#/~1fixed_movement~1add
+  /fixed_movement/update:
+    $ref: fixed_movement.yml#/~1fixed_movement~1update
+  /fixed_movement/delete/{id}:
+    $ref: fixed_movement.yml#/~1fixed_movement~1delete~1{id}
+
+  
+
+   

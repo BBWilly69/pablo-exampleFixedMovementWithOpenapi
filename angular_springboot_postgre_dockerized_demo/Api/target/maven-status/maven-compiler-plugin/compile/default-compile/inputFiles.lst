@@ -1,0 +1,9 @@
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/target/generated-sources/openapi/src/main/java/de/imunixx/api/controller/ApiUtil.java
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/src/main/java/de/imunixx/api/mapper/BackendMapper.java
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/src/main/java/de/imunixx/api/entity/SpendingExpectation.java
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/src/main/java/de/imunixx/api/entity/User.java
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/src/main/java/de/imunixx/api/entity/Movement.java
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/src/main/java/de/imunixx/api/entity/Profile.java
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/target/generated-sources/openapi/src/main/java/de/imunixx/api/controller/FixedMovementApi.java
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/src/main/java/de/imunixx/api/entity/FixedMovement.java
+/home/ub/projects/pfimunixx/angular_springboot_postgre_dockerized_demo/Api/target/generated-sources/openapi/src/main/java/de/imunixx/api/model/FixedMovementDto.java

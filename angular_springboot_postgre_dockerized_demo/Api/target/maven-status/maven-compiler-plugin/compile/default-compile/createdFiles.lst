@@ -1,0 +1,9 @@
+de/imunixx/api/controller/ApiUtil.class
+de/imunixx/api/entity/FixedMovement.class
+de/imunixx/api/controller/FixedMovementApi.class
+de/imunixx/api/entity/Profile.class
+de/imunixx/api/entity/SpendingExpectation.class
+de/imunixx/api/entity/Movement.class
+de/imunixx/api/mapper/BackendMapper.class
+de/imunixx/api/model/FixedMovementDto.class
+de/imunixx/api/entity/User.class

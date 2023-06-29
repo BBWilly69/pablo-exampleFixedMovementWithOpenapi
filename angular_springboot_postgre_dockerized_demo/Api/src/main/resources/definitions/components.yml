@@ -1,0 +1,52 @@
+#-------------------------------------------------------------------------------
+# parameter
+#-------------------------------------------------------------------------------
+parameters:
+  id:
+    in: path
+    name: id
+    schema:
+      type: integer
+      format: int64
+    required: true
+
+  profileId:
+    in: path
+    name: spId
+    schema:
+      type: integer
+      format: int64
+    required: true
+
+#------------------------------------------------------------------------------- 
+# requestBodies
+#-------------------------------------------------------------------------------
+requestBodies:
+  FixedMovementDto:
+    description: FixedMovement
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: schema.yml#/schema/FixedMovement
+          
+#-------------------------------------------------------------------------------
+# responses
+#-------------------------------------------------------------------------------
+responses:
+  FixedMovementDto:
+    description: FixedMovement
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: schema.yml#/schema/FixedMovement
+  FixedMovementListDto:
+    description: FixedMovementList
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: schema.yml#/schema/FixedMovement

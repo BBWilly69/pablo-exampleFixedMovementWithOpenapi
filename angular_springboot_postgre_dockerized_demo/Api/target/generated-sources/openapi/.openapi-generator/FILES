@@ -1,0 +1,3 @@
+src/main/java/de/imunixx/api/controller/ApiUtil.java
+src/main/java/de/imunixx/api/controller/FixedMovementApi.java
+src/main/java/de/imunixx/api/model/FixedMovementDto.java

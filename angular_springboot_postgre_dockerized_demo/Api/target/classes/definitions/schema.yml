@@ -1,0 +1,48 @@
+schema:
+  FixedMovement:
+    type: object
+    title: FixedMovement
+    properties:
+      id:
+        format: int64
+        type: integer
+      concept:
+        example: lay me down again
+        type: string
+      description:
+        example: ceep calm
+        type: string
+      amount:
+        example: 12.0
+        type: number
+        format: double
+      startDate:
+        example: 
+        type: string
+        format: date
+      endDate:
+        example: 
+        type: string
+        format: date
+      amountType:
+        example:
+        # if types are fix you could use an enum here  
+        type: string
+      profileId:
+        format: int64
+        type: integer
+        
+  Profile:
+    type: object
+    title: FixedMovement
+    properties:
+      id:
+        format: int64
+        type: integer
+      name:
+        type: string
+      fixedMovementList:
+        type: array
+        items:
+          $ref: '#/schema/FixedMovement'
+        
