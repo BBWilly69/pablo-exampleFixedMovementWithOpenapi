@@ -15,6 +15,21 @@
    
     <properties>
         <java.version>17</java.version>
+        <Api-1>FixedMovement</Api-1>
+        <!--<Api-2>ServiceProvider,SpConfig,Translation,Sptranslation,</Api-2>
+        <Api-3>IsoLocale,KeysTranslated,WebController,Maintenance,</Api-3>
+        <Api-4>MaintenanceTemplate,DataCenter</Api-4>-->
+        <allApis>${Api-1}<!--${Api-2}${Api-3}${Api-4}--></allApis>
+
+        <Model-1>FixedMovement,Profile</Model-1>
+        <!--<Model-2>Configkey,Language,Links,SPConfig,SPConfigExt,SPwithBrowserChk,ServiceProvider,</Model-2>
+        <Model-3>Sptranslation,SpTransForm,SpTransFormExt,SupportedBrowser,</Model-3>
+        <Model-4>Translation,Translationkey,LanguageFormater,Maintenance,</Model-4>
+        <Model-5>MaintenanceTemplate,MaintenancePreview,DataCenter,TimeZoneWithOffset</Model-5>-->
+        <allModels>${Model-1}<!--${Model-2}${Model-3}${Model-4}${Model-5}--></allModels>
+
+        <model.modelPackage>de.imunixx.api.model</model.modelPackage>
+        <api.basePackage>de.imunixx.api.controller</api.basePackage>
     </properties>
 
     <dependencies>
@@ -86,12 +101,7 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
-        <dependency>
-            <groupId>de.imunixx</groupId>
-            <artifactId>Backend</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
+
     </dependencies>
 
     <build>
@@ -116,7 +126,7 @@
                             <importMappings>
                                 <importMapping>java.time.OffsetDateTime=java.time.OffsetDateTime</importMapping>
                             </importMappings>
-                            <modelNameSuffix>${swagger.modelNameSuffix}</modelNameSuffix>
+                            <modelNameSuffix>DTO</modelNameSuffix>
                             <generateApis>true</generateApis>
                             <apisToGenerate>${allApis}</apisToGenerate>
                             <generateApiTests>false</generateApiTests>
@@ -140,15 +150,15 @@
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <useBeanValidation>true</useBeanValidation>
                                 <performBeanValidation>true</performBeanValidation>
-                                <modelPackage>${swagger.modelPackage}</modelPackage>
-                                <apiPackage>${swagger.basePackage}</apiPackage>
+                                <modelPackage>${model.modelPackage}</modelPackage>
+                                <apiPackage>${api.basePackage}</apiPackage>
                                 <sourceFolder>/src/main/java</sourceFolder>
                                 <implFolder>/src/main/java</implFolder>                           
                                 <serializableModel>true</serializableModel>
                                 <documentationProvider>springdoc</documentationProvider>
                                 <delegatePattern>true</delegatePattern>
                                 <useTags>true</useTags>
-                                <additionalModelTypeAnnotations>@lombok.AllArgsConstructor; @lombok.NoArgsConstructor</additionalModelTypeAnnotations>
+                                <additionalModelTypeAnnotations><!--@lombok.AllArgsConstructor;--> @lombok.NoArgsConstructor</additionalModelTypeAnnotations>
                                 <generatedConstructorWithRequiredArgs>true</generatedConstructorWithRequiredArgs> 
                                 <!--<reactive>true</reactive>-->
                             </configOptions>
@@ -176,6 +186,73 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.8.1</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifest>
+                            <addClasspath>false</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Build-Number>${parent.version}</Build-Number>
+                            <Build-Time>${maven.build.timestamp}</Build-Time>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>${lombok-mapstruct-binding}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <compilerArg>
+                            -Amapstruct.defaultComponentModel=spring
+                        </compilerArg>
+                    </compilerArgs>
+                </configuration>
             </plugin>
         </plugins>
     </build>

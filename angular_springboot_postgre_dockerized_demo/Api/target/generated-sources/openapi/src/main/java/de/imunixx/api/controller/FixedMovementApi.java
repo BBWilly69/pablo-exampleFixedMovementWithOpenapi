@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-29T15:32:29.000363226+02:00[Europe/Berlin]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-13T17:15:52.892550924+02:00[Europe/Berlin]")
 @Validated
 @Tag(name = "FixedMovement", description = "Operations to manage FixedMovement")
 public interface FixedMovementApi {

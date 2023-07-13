@@ -26,7 +26,7 @@ import jakarta.annotation.Generated;
 @lombok.NoArgsConstructor
 
 @JsonTypeName("FixedMovement")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-29T15:32:29.000363226+02:00[Europe/Berlin]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-13T17:15:52.892550924+02:00[Europe/Berlin]")
 public class FixedMovementDto implements Serializable {
 
   private static final long serialVersionUID = 1L;
