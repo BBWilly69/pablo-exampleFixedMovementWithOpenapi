@@ -39,7 +39,7 @@
         <lombok-mapstruct-binding>0.2.0</lombok-mapstruct-binding>
         <hibernate-validator>8.0.0.Final</hibernate-validator>
         <hibernate-core.orm>6.2.5.Final</hibernate-core.orm>
-        <postgresql>42.6.0</postgresql>
+        <postgresql>42.7.12</postgresql>
         <mockito-junit-jupiter>5.3.1</mockito-junit-jupiter>
         
         <jakarta.validation-api>3.0.2</jakarta.validation-api>
